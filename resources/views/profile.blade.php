@@ -3,53 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>{
-        font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 auto;
-        }
-        .info {
-            margin-top: 20px;
-        }
-        .info div {
-            background-color: #e0e0e0;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            width: 200px; /* Set fixed width */
-            margin: 5px auto; /* Center the div */
-        }
-    </style>
-</head>
-<body> 
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
 </head>
 <body>
+    
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card" style="width: 18rem; position: relative;">
+            <img src="{{ asset('assets/img/bg.jpg') }}" class="bg" alt="Background Photo">
+            <img src="{{ asset('upload/img/' . $user->foto) }}" class="pp" alt="PP">
 
-    <div class="container">
-        <div class="profile-pic"></div>
-        <div class="info">
-            <div>{{$nama}}</div>
-            <div>{{$kelas}}</div>
-            <div>{{$npm}}</div>
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center mt-2">{{ $user->nama }}</h5>
+                <h5 class="card-title d-flex justify-content-center mt-3">{{ $user->nama_kelas ?? 'Kelas tidak ditemukan' }}</h5>
+                <h5 class="card-title d-flex justify-content-center mt-3">{{ $user->ipk }}</h5>
+                <a href="{{ route('users.index') }}" class="btn btn-primary card-link d-flex justify-content-center mt-5">Kembali</a>
+            </div>
         </div>
     </div>
 
